@@ -1,0 +1,61 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Library</title>
+        {% load static %}
+            <link rel="stylesheet" href="{% static 'library/front_style.css' %}">
+    </head>
+    <body>
+        <div id="top">
+            <img src="{% static 'library/images/sxc_logo.png'%}" alt="sxc logo" height="170" width="150" align="left"/>
+            <h1 id="clg_name">St. Xavier's college of Management & Technology</h1>
+           
+            </h2>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+         <h2 id="lib"><u>LIBRARY</u> </h2>
+        <hr/>
+        <h2 id="title">___BOOK SHELF___</h2>
+        <form action="{% url 'library:Front_look' %}" method='post' align="right">
+            {% csrf_token %}
+            <label for="search">Text..</label>
+            <input type="text" id="search" name="find" size="25"/>
+            <select name="options" id="options">
+                <option value="Title">Title</option>
+                <option value="Publisher">Publisher</option>
+                <option value="Author">Author</option>
+            </select>
+            <input type="submit" value="search"/>
+        </form>
+        {% if book %}
+            
+        <ul>
+            {% for fil in book %}
+                    
+            <div class="block">
+                <ul>
+                    <li>
+                        <u>Title :  {{ fil.book_title }} </u>
+                    </li>
+                    <li id="aut">Author : {{ fil.book_author }}</li>
+                    <li>Publisher : {{ fil.book_publisher }}</li>
+                    <li>Code : {{ fil.book_code }}</li>
+                    <li>Book Left:{{ fil.book_left }}</li>
+                    <li>Total book: {{ fil.book_total }}</li>
+                </ul>
+            </div>
+            {% endfor %}
+            
+        </ul>
+        {% else %}
+            
+        <h3>
+            No matching books found..<br/>Try somethine else
+        </h3>
+        {% endif %}
+    </body>
+</html>

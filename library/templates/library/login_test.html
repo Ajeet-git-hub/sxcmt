@@ -1,0 +1,11 @@
+{% load i18n static %}
+<html>
+    <head></head>
+    <body>
+        {% if user.is_authenticated %}
+            <h1>authenticated 🙂</h1>
+        {% else %}
+            <h1>authentication is gone 😒</h1>
+        {% endif %}
+    </body>
+</html>

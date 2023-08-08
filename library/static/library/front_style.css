@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(86 186 245 / 81%);
+}
+
+.block {
+    background-color: #512f6b;
+    border-top-style: groove;
+    border-bottom-style:groove;
+    border-bottom-width:5px;
+    border-right-width:5px;
+    border-right-style:groove;
+    border-width: 5px;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+    height: 130px;
+    width: 44%;
+    color: white;
+    border-left-style: groove;
+    padding-top: 30px;
+    padding-left: 40px;
+    border-bottom-right-radius: 7px;
+    margin: 5px;
+    float: left;
+    font-size: 110%;
+}
+
+#top {
+    padding: 40px;
+    padding-bottom:0%;
+    margin-bottom:-40px;
+    padding-top:0%;
+}
+
+#title {
+    padding-top: 10px;
+    text-align: center
+}
+#lib{
+    padding-left:46%;
+}
+#clg_name{
+    padding-left:24%;
+}

@@ -1,0 +1,57 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Working Arena</title>
+    </head>
+    <body>
+        <h1 align="center">WORK ARENA</h1>
+        {% if user.is_authenticated %}
+            
+        <h2 align="right">
+            <a href="/admin/">Library Administration</a>
+        </h2>
+        <h3>authenticated 🙂</h3>
+        <form action="{% url 'library:Avalability' %}" id="av_check" method="post">
+            {% csrf_token%}
+            <fieldset ">
+                <legend align="right">check For availability</legend>
+                <label for="stu_roll">Student Roll: </label>
+                <input type="text" id="stu_roll_av" name="stu_roll" value = "{{roll}}"/>
+                <br/>
+                <br/>
+                <input type="submit" value="check"/>
+            </fieldset>
+        </form>
+        <form action="{% url 'library:Work_area' %}" id="num_input" method="post">
+            {% csrf_token%}
+            <fieldset ">
+                <legend align="right">Assign Book</legend>               
+                <br/>
+                <label for="bk_id">Book Id: </label>
+                <input type="text" id="bk_id" name="bk_id"/>
+                <br/>
+                <br/>
+                <input type="submit" value="assign"/>
+            </fieldset>
+        </form>
+        <h2>{{report}}</h2>    
+        {% if total_books %}
+            <h2>Total books: {{total_books}}</h2>
+        {% endif %}
+        {% for na in book_li %}
+            <th>
+                <tr><p><u>{{na}}</u></p></tr>
+            </th>           
+        {% endfor %}
+        {% else %}
+            
+        <h2 align="right">
+            <a href="/admin/">Login To Work</a>
+        </h2>
+        <h3>authentication is gone 😒</h3>
+        {% endif %}
+    
+    </body>
+</html>
